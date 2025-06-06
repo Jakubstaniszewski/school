@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
-  const [data, setData] = useState("");
-
-  useEffect(() => {
-    axios.get("https://teb.onrender.com/api/test")
-      .then(res => setData(res.data.status))
-      .catch(() => setData("Błąd połączenia"));
-  }, []);
-
-  return <h1>{data}</h1>;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
