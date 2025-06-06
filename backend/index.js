@@ -5,8 +5,8 @@ require('dotenv').config();
 app.use(express.json());
 app.use(require('cors')());
 
-app.get('/', (req, res) => {
-  res.send('Działa!');
+app.get('/api/test', (req, res) => {
+  res.json({ status: 'Backend działa poprawnie!' });
 });
 
 const PORT = process.env.PORT || 5000;
